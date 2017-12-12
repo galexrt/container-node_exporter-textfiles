@@ -2,13 +2,15 @@
 # Copyright (c) Alexander Trost 2017
 # Licensed under MIT license.
 
+if [ ! -z "$DEBUG" ]; then
+    set -ex
+fi
+
+
 INTERVAL="${INTERVAL:-30}"
 
-echo "=> INTERVAL: $INTERVAL"
-
+echo "Starting smartmon.sh loop ..."
 while true; do
-    echo "-> Running smartmon.sh"
     /smartmon.sh > /var/lib/node_exporter/smartmon.prom
-    echo "=> smartmon.sh: $?"
     sleep "$INTERVAL"
 done
