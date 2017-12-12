@@ -4,8 +4,10 @@
 
 INTERVAL="${INTERVAL:-30}"
 
+echo "=> INTERVAL: $INTERVAL"
+
 while true; do
-    echo "-> Running smartmon.sh"
+    echo "=> Running smartmon.sh"
     /smartmon.sh > /var/lib/node_exporter/smartmon.prom
     sleep "$INTERVAL"
 done
