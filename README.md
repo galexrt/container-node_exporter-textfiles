@@ -1,6 +1,10 @@
 # docker-smartctl
 This Docker image needs to be run in privileged mode.
 
+Image available from Quay.io and Docker Hub:
+* `quay.io/galexrt/node-exporter-smartmon:TAG`
+* `galexrt/node-exporter-smartmon:TAG`
+
 ## Credits
 The `smartmon.sh` has been taken from the [prometheus/node_exporter](https://github.com/prometheus/node_exporter) repository.
 
