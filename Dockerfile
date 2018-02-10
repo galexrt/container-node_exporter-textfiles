@@ -1,4 +1,4 @@
-FROM debian:jessie
+FROM debian:stretch-slim
 
 MAINTAINER Alexander Trost <galexrt@googlemailc.om>
 
@@ -7,8 +7,8 @@ RUN apt-get -q update && \
     apt-get clean && \
     rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
-COPY smartmon.sh /smartmon.sh
 COPY entrypoint.sh /entrypoint.sh
+COPY smartmon.sh /smartmon.sh
 
 VOLUME ["/var/lib/node_exporter"]
 
