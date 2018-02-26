@@ -1,6 +1,6 @@
 FROM debian:stretch-slim
 
-MAINTAINER Alexander Trost <galexrt@googlemailc.om>
+LABEL maintainer="Alexander Trost <galexrt@googlemailc.om>"
 
 RUN apt-get -q update && \
     apt-get install -y --no-install-recommends smartmontools && \
