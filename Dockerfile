@@ -1,4 +1,4 @@
-FROM debian:stretch-slim
+FROM debian:jessie-slim
 
 LABEL maintainer="Alexander Trost <galexrt@googlemailc.om>"
 

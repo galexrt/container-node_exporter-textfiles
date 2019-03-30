@@ -7,7 +7,7 @@ if [ ! -z "$DEBUG" ]; then
 fi
 
 
-INTERVAL="${INTERVAL:-30}"
+INTERVAL="${INTERVAL:-300}"
 
 echo "Starting smartmon.sh loop ..."
 while true; do
