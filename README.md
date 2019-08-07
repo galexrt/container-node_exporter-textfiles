@@ -13,3 +13,7 @@ The `smartmon.sh` has been taken from the [prometheus/node_exporter](https://git
 ## Grafana Dashboard
 
 A dashboard for viewing the exported metrics can be found here: [Grafana.com Dashboards - Smartmon Textfile](https://grafana.com/dashboards/3992).
+
+## Kubernetes Usage
+
+The [`kubernetes/`](/kubernetes/) directory contains an example DaemonSet.

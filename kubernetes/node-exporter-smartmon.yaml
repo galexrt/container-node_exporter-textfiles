@@ -1,0 +1,51 @@
+apiVersion: apps/v1
+kind: DaemonSet
+metadata:
+  name: node-exporter-smartmon
+  namespace: monitoring
+  labels:
+    app: node-exporter-smartmon
+spec:
+  updateStrategy:
+    rollingUpdate:
+      maxUnavailable: 3
+    type: RollingUpdate
+  selector:
+    matchLabels:
+      app: node-exporter-smartmon
+  template:
+    metadata:
+      name: node-exporter-smartmon
+      labels:
+        app: node-exporter-smartmon
+    spec:
+      tolerations:
+        - key: node-role.kubernetes.io/master
+          operator: Exists
+          effect: "NoSchedule"
+        - key: "CriticalAddonsOnly"
+          operator: "Exists"
+      terminationGracePeriodSeconds: 5
+      containers:
+      - image: quay.io/galexrt/node-exporter-smartmon:v1.0.3
+        name: smartmon
+        env:
+        - name: INTERVAL
+          value: "900"
+        securityContext:
+          privileged: true
+        resources:
+          requests:
+            cpu: 20m
+            memory: 50Mi
+          limits:
+            cpu: 80m
+            memory: 75Mi
+        volumeMounts:
+        - mountPath: /var/lib/node_exporter
+          name: textfiles
+          readOnly: false
+      volumes:
+      - hostPath:
+          path: /var/lib/node_exporter
+        name: textfiles
