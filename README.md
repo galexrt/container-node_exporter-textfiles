@@ -8,7 +8,7 @@ Image available from Quay.io and Docker Hub:
 
 ## Credits
 
-The `smartmon.sh` has been taken from the [prometheus/node_exporter](https://github.com/prometheus/node_exporter) repository.
+The `smartmon.sh` has been taken from the [prometheus-community/node-exporter-textfile-collector-scripts](https://github.com/prometheus-community/node-exporter-textfile-collector-scripts) ([prometheus/node_exporter](https://github.com/prometheus/node_exporter)) repository.
 
 ## Grafana Dashboard
 
