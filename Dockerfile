@@ -1,6 +1,6 @@
-FROM debian:jessie-slim
+FROM debian:buster-slim
 
-LABEL maintainer="Alexander Trost <galexrt@googlemailc.om>"
+LABEL maintainer="Alexander Trost <galexrt@googlemail.com>"
 
 RUN apt-get -q update && \
     apt-get install -y --no-install-recommends smartmontools && \
