@@ -10,6 +10,8 @@ RUN apt-get -q update && \
 COPY entrypoint.sh /entrypoint.sh
 COPY smartmon.sh /smartmon.sh
 
+RUN chmod 755 /entrypoint.sh /smartmon.sh
+
 VOLUME ["/var/lib/node_exporter"]
 
 ENTRYPOINT ["/entrypoint.sh"]
