@@ -1,9 +1,9 @@
 #!/usr/bin/env bash
 
-# Copyright (c) Alexander Trost 2019
+# Copyright (c) Alexander Trost 2020
 # Licensed under MIT license.
 
-if [ ! -z "$DEBUG" ]; then
+if [ -n "$DEBUG" ]; then
     set -ex
 fi
 
