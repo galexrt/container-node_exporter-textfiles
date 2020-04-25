@@ -2,13 +2,12 @@ apiVersion: apps/v1
 kind: DaemonSet
 metadata:
   name: node-exporter-smartmon
-  namespace: monitoring
   labels:
     app: node-exporter-smartmon
 spec:
   updateStrategy:
     rollingUpdate:
-      maxUnavailable: 3
+      maxUnavailable: 5
     type: RollingUpdate
   selector:
     matchLabels:
@@ -27,7 +26,7 @@ spec:
           operator: "Exists"
       terminationGracePeriodSeconds: 5
       containers:
-      - image: quay.io/galexrt/node-exporter-smartmon:v1.0.3
+      - image: quay.io/galexrt/node-exporter-smartmon:v1.2.0
         name: smartmon
         env:
         - name: INTERVAL
@@ -36,16 +35,16 @@ spec:
           privileged: true
         resources:
           requests:
-            cpu: 20m
+            cpu: 25m
             memory: 50Mi
           limits:
             cpu: 80m
             memory: 75Mi
         volumeMounts:
         - mountPath: /var/lib/node_exporter
-          name: textfiles
+          name: textfile
           readOnly: false
       volumes:
       - hostPath:
           path: /var/lib/node_exporter
-        name: textfiles
+        name: textfile

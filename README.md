@@ -4,8 +4,8 @@ This Docker image needs to be run in privileged mode, for `smartctl` to be able 
 
 Image available from Quay.io and Docker Hub:
 
-* `quay.io/galexrt/node-exporter-smartmon:latest`
-* `galexrt/node-exporter-smartmon:latest`
+* `quay.io/galexrt/node-exporter-smartmon:v1.2.0`
+* `galexrt/node-exporter-smartmon:v1.2.0`
 
 ## Credits
 
