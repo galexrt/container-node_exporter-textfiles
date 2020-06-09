@@ -7,6 +7,8 @@ Image available from Quay.io and Docker Hub:
 * `quay.io/galexrt/node-exporter-smartmon:v1.2.0`
 * `galexrt/node-exporter-smartmon:v1.2.0`
 
+An auto build is triggered every week, be sure to check the git tags.
+
 ## Credits
 
 The `smartmon.sh` has been directly taken from the [prometheus-community/node-exporter-textfile-collector-scripts](https://github.com/prometheus-community/node-exporter-textfile-collector-scripts) ([prometheus/node_exporter](https://github.com/prometheus/node_exporter)) repository.
