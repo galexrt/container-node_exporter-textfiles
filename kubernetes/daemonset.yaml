@@ -3,7 +3,7 @@ kind: DaemonSet
 metadata:
   name: node-exporter-smartmon
   labels:
-    app: node-exporter-smartmon
+    app.kubernetes.io/name: node-exporter-smartmon
 spec:
   updateStrategy:
     rollingUpdate:
@@ -11,12 +11,12 @@ spec:
     type: RollingUpdate
   selector:
     matchLabels:
-      app: node-exporter-smartmon
+      app.kubernetes.io/name: node-exporter-smartmon
   template:
     metadata:
       name: node-exporter-smartmon
       labels:
-        app: node-exporter-smartmon
+        app.kubernetes.io/name: node-exporter-smartmon
     spec:
       tolerations:
         - key: node-role.kubernetes.io/master
@@ -26,7 +26,7 @@ spec:
           operator: "Exists"
       terminationGracePeriodSeconds: 5
       containers:
-      - image: quay.io/galexrt/node-exporter-smartmon:v1.2.0
+      - image: quay.io/galexrt/node-exporter-smartmon:v20201022-124227-096
         name: smartmon
         env:
         - name: INTERVAL
@@ -41,10 +41,16 @@ spec:
             cpu: 80m
             memory: 75Mi
         volumeMounts:
+        - mountPath: /dev
+          name: host-dev
+          readOnly: true
         - mountPath: /var/lib/node_exporter
-          name: textfile
+          name: host-textfile
           readOnly: false
       volumes:
       - hostPath:
+          path: /dev
+        name: host-dev
+      - hostPath:
           path: /var/lib/node_exporter
-        name: textfile
+        name: host-textfile
