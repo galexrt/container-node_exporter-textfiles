@@ -74,7 +74,6 @@
               "col": 0,
               "desc": true
             },
-            "span": 12,
             "styles": [
               {
                 "alias": "Time",
@@ -112,12 +111,32 @@
             "type": "table"
           }
         ],
-        "repeat": null,
-        "repeatIteration": null,
-        "repeatRowId": null,
-        "showTitle": false,
-        "title": "Dashboard Row",
-        "titleSize": "h6"
+        "thresholds": [],
+        "timeFrom": null,
+        "timeRegions": [],
+        "timeShift": null,
+        "title": "Airflow Temperature",
+        "tooltip": {
+          "shared": true,
+          "sort": 0,
+          "value_type": "individual"
+      },
+        "type": "graph",
+        "xaxis": {
+          "buckets": null,
+          "mode": "time",
+          "name": null,
+          "show": true,
+          "values": []
+        },
+        "yaxes": [
+      {
+            "format": "short",
+            "label": null,
+            "logBase": 1,
+            "max": null,
+            "min": null,
+            "show": true
       },
       {
         "collapse": false,
@@ -153,12 +172,11 @@
             "renderer": "flot",
             "seriesOverrides": [],
             "spaceLength": 10,
-            "span": 12,
             "stack": false,
             "steppedLine": false,
             "targets": [
               {
-                "expr": "avg(smartmon_airflow_temperature_cel_value{instance=~\"$instance\"}) by (instance, disk)",
+            "expr": "avg(smartmon_temperature_celsius_raw_value) by (instance, disk)\n",
                 "format": "time_series",
                 "hide": false,
                 "interval": "1m",
@@ -167,7 +185,7 @@
                 "refId": "B"
               },
               {
-                "expr": "avg(smartmon_airflow_temperature_cel_raw_value{instance=~\"$instance\"}) by (instance, disk)",
+            "expr": "avg(smartmon_airflow_temperature_cel_value) by (instance, disk)",
                 "format": "time_series",
                 "hide": false,
                 "interval": "1m",
