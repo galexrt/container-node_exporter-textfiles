@@ -1,8 +1,8 @@
 # docker-node_exporter-smartmon
 
-This Docker image needs to be run in privileged mode, for `smartctl` to be able to collect the SMART values.
+This Docker image needs to be run in privileged mode for most of the scripts in the `prometheus-community/node-exporter-textfile-collector-scripts` repository, e.g., for `smartctl.sh` it is needed to be able to collect the SMART values.
 
-Image available from Quay.io and Docker Hub:
+Image available from Quay.io and Docker Hub (make sure to use the latest available (git) tags):
 
 * `quay.io/galexrt/node-exporter-smartmon:v1.2.0`
 * `galexrt/node-exporter-smartmon:v1.2.0`
@@ -11,7 +11,7 @@ An auto build is triggered every week, be sure to check the git tags.
 
 ## Credits
 
-The `smartmon.sh` has been directly taken from the [prometheus-community/node-exporter-textfile-collector-scripts](https://github.com/prometheus-community/node-exporter-textfile-collector-scripts) ([prometheus/node_exporter](https://github.com/prometheus/node_exporter)) repository.
+This docker image contains the [prometheus-community/node-exporter-textfile-collector-scripts](https://github.com/prometheus-community/node-exporter-textfile-collector-scripts) repository, so that any script can be easily used with / from this Docker image.
 
 ## Usage
 
