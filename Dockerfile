@@ -3,7 +3,7 @@ FROM debian:buster-slim
 LABEL maintainer="Alexander Trost <galexrt@googlemail.com>"
 
 RUN apt-get -q update && \
-    apt-get install -y --no-install-recommends smartmontools nvme-cli jq moreutils git && \
+    apt-get install -y --no-install-recommends smartmontools nvme-cli jq moreutils git ca-certificates && \
     apt-get clean && \
     rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/* && \
     mkdir -p /scripts && \
