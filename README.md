@@ -22,7 +22,7 @@ The entrypoint script is putting the output into the directory `/var/lib/node_ex
 A Grafana dashboard for viewing the exported metrics can be found on [Grafana.com - Smartmon Textfile by Galexrt](https://grafana.com/dashboards/3992) and in the [`grafana/`](grafana/) directory.
 
 ### Screenshots  
-    ![Disk and Airflow Temperatures](media/disk-airflow-temps.png?raw=true "Disk and Airflow Temps")
+![Disk and Airflow Temperatures](media/disk-airflow-temps.png?raw=true "Disk and Airflow Temps")
 
 ## Kubernetes
 
