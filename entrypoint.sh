@@ -11,7 +11,7 @@ SCRIPT="${SCRIPT:-smartmon.sh}"
 OUTPUT_FILENAME="${OUTPUT_FILENAME:-smartmon}"
 INTERVAL="${INTERVAL:-300}"
 
-if [ -f "/scripts/${SCRIPT}" ]; then
+if [ ! -f "/scripts/${SCRIPT}" ]; then
     echo "Script ${SCRIPT} doesn't exist. Exiting 1"
     exit 1
 fi
