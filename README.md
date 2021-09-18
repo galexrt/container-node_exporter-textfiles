@@ -1,11 +1,11 @@
-# docker-node_exporter-smartmon
+# container-node_exporter-smartmon
 
 Container Image with the Prometheus Community's node-exporter-textfile-collector-scripts Repository checked out, with some utilities installed.
 
 Container Image available from:
 
-* [Quay.io](https://quay.io/repository/galexrt/ts3server)
-* [GHCR.io](https://github.com/users/galexrt/packages/container/package/container-ts3server)
+* [Quay.io](https://quay.io/repository/galexrt/node-exporter-smartmon)
+* [GHCR.io](https://github.com/users/galexrt/packages/container/package/node-exporter-smartmon)
 
 Container Image Tags:
 
