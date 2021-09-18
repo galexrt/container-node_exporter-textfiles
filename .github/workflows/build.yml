@@ -1,9 +1,12 @@
-name: weekly-release
+name: build
 on:
-  schedule:
-    - cron: '30 12 * * 4'
+  push:
+    branches:
+      - "main"
+    tags:
+      - 'v*'
 jobs:
-  test:
+  build:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
@@ -19,6 +22,14 @@ jobs:
           registry: quay.io
           username: ${{ secrets.REGISTRY_QUAYIO_USERNAME }}
           password: ${{ secrets.REGISTRY_QUAYIO_PASSWORD }}
-      - name: Release
+      - name: Build Container Image
         run: |
-          make release
+          if [[ "${GITHUB_REF}" =~ ^refs/tags/* ]]; then
+              # Tags
+              VERSION="${GITHUB_REF/refs\/tags\//}"
+          else
+              # Branch
+              VERSION="${GITHUB_REF/refs\/heads\//}"
+          fi
+          
+          make container-build container-push VERSION="${VERSION:-main}"
