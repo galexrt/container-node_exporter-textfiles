@@ -18,6 +18,6 @@ fi
 
 echo "Starting smartmon.sh loop ..."
 while true; do
-    "/scripts/${SCRIPT}" "${@}" > "/var/lib/node_exporter/${OUTPUT_FILENAME}.prom"
+    "/scripts/${SCRIPT}" "${@}" | sponge "/var/lib/node_exporter/${OUTPUT_FILENAME}.prom"
     sleep "${INTERVAL}"
 done

@@ -15,7 +15,7 @@ LABEL org.opencontainers.image.authors="Alexander Trost <galexrt@googlemail.com>
     org.opencontainers.image.version="N/A"
 
 RUN apt-get -q update && \
-    apt-get install -y --no-install-recommends smartmontools nvme-cli jq moreutils git ca-certificates && \
+    apt-get install -y --no-install-recommends smartmontools nvme-cli jq moreutils git ca-certificates moreutils && \
     apt-get clean && \
     rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/* && \
     mkdir -p /scripts && \
