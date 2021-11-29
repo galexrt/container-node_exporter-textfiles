@@ -8,7 +8,7 @@ if [ -n "$DEBUG" ]; then
 fi
 
 SCRIPT="${SCRIPT:-smartmon.sh}"
-OUTPUT_FILENAME="${OUTPUT_FILENAME:-smartmon}"
+OUTPUT_FILENAME="${OUTPUT_FILENAME:-${SCRIPT%.*}}"
 INTERVAL="${INTERVAL:-300}"
 
 if [ ! -f "/scripts/${SCRIPT}" ]; then
@@ -16,7 +16,7 @@ if [ ! -f "/scripts/${SCRIPT}" ]; then
     exit 1
 fi
 
-echo "Starting smartmon.sh loop ..."
+echo "Starting ${SCRIPT} loop ..."
 while true; do
     "/scripts/${SCRIPT}" "${@}" | sponge "/var/lib/node_exporter/${OUTPUT_FILENAME}.prom"
     sleep "${INTERVAL}"
