@@ -16,20 +16,23 @@ LABEL org.opencontainers.image.authors="Alexander Trost <galexrt@googlemail.com>
 
 RUN apt-get -q update && \
     apt-get install -y --no-install-recommends \
-        smartmontools \
-        nvme-cli \
+        ca-certificates \
+        git \
         jq \
         moreutils \
-        git \
-        ca-certificates \
-        moreutils && \
+        moreutils \
+        nvme-cli \
+        pciutils \
+        smartmontools \
+        wget && \
     apt-get clean && \
     rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/* && \
     mkdir -p /scripts && \
     git clone --depth 1 --branch master --single-branch \
         https://github.com/prometheus-community/node-exporter-textfile-collector-scripts.git \
         /scripts && \
-    chmod 755 /scripts/*
+    chmod 755 /scripts/* && \
+    update-pciids -q
 
 COPY entrypoint.sh /entrypoint.sh
 
