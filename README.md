@@ -18,9 +18,9 @@ This docker image contains the [prometheus-community/node-exporter-textfile-coll
 
 ## Usage
 
-**This Docker image needs to be run in privileged mode for most of the scripts in the `prometheus-community/node-exporter-textfile-collector-scripts` repository, e.g., for `smartctl.sh` it is needed to be able to collect the SMART values.**
+**This Docker image needs to be run in privileged mode for most of the scripts in the `prometheus-community/node-exporter-textfile-collector-scripts` repository, e.g., for `smartmon.sh` it is needed to be able to collect the SMART values.**
 
-The entrypoint script is putting the output into the directory `/var/lib/node_exporter` by default, filename `smartmon.prom`.
+The entrypoint script is putting the output into the directory `/var/lib/node_exporter`, by default filename named after which script is running.
 
 ### Variables
 
