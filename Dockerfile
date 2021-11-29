@@ -1,4 +1,4 @@
-FROM debian:buster-slim
+FROM debian:bullseye-slim
 
 ARG BUILD_DATE="N/A"
 ARG REVISION="N/A"
