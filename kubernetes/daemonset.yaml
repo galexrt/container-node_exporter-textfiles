@@ -26,11 +26,13 @@ spec:
           operator: "Exists"
       terminationGracePeriodSeconds: 5
       containers:
-      - image: quay.io/galexrt/node-exporter-smartmon:v20201022-124227-096
+      - image: quay.io/galexrt/node-exporter-smartmon:v20220203-125335-155
         name: smartmon
         env:
         - name: INTERVAL
           value: "900"
+        - name: SCRIPT
+          value: "smartmon.sh"
         securityContext:
           privileged: true
         resources:
@@ -38,7 +40,30 @@ spec:
             cpu: 25m
             memory: 50Mi
           limits:
-            cpu: 80m
+            cpu: 250m
+            memory: 75Mi
+        volumeMounts:
+        - mountPath: /dev
+          name: host-dev
+          readOnly: true
+        - mountPath: /var/lib/node_exporter
+          name: host-textfile
+          readOnly: false
+      - image: quay.io/galexrt/node-exporter-smartmon:v20220203-125335-155
+        name: nvmemetrics
+        env:
+        - name: INTERVAL
+          value: "900"
+        - name: SCRIPT
+          value: "nvme_metrics.sh"
+        securityContext:
+          privileged: true
+        resources:
+          requests:
+            cpu: 25m
+            memory: 50Mi
+          limits:
+            cpu: 250m
             memory: 75Mi
         volumeMounts:
         - mountPath: /dev
