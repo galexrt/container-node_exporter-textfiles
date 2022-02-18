@@ -2,4 +2,4 @@ The node-exporter-textfiles DaemonSet has been deployed!
 
 Make sure to configure your node_exporter to pickup textfiles.
 For more information see the documentation at:
-https://github.com/galexrt/container-node_exporter-smartmon/main/docs/node_exporter.md
+https://github.com/galexrt/container-node_exporter-textfiles/main/docs/node_exporter.md

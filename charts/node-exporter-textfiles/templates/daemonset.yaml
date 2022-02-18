@@ -1,5 +1,5 @@
 apiVersion: apps/v1
-kind: Deployment
+kind: DaemonSet
 metadata:
   name: {{ include "node-exporter-textfiles.fullname" . }}
   labels:
@@ -29,13 +29,26 @@ spec:
         - name: {{ .name }}
           securityContext:
             {{- toYaml $.Values.securityContext | nindent 12 }}
-          image: "{{ .Values.image.repository }}:{{ .Values.image.tag | default .Chart.AppVersion }}"
+          image: "{{ $.Values.image.repository }}:{{ $.Values.image.tag | default $.Chart.AppVersion }}"
           imagePullPolicy: {{ $.Values.image.pullPolicy }}
           resources:
             {{- toYaml .resources | nindent 12 }}
+          env:
+            - name: SCRIPT
+              value: "{{ .script }}"
+            - name: OUTPUT_FILENAME
+              value: {{ .outputFilename | quote }}
+            - name: INTERVAL
+              value: "{{ .interval }}"
+            {{- with .additionalEnv }}
+            {{- toYaml . | nindent 12 }}
+            {{- end}}
           volumeMounts:
             - mountPath: /var/lib/node_exporter
               name: textfile
+            {{- with .additionalVolumeMounts }}
+            {{ toYaml . | nindent 12 }}
+            {{- end }}
       {{- end }}
       {{- with .Values.nodeSelector }}
       nodeSelector:
@@ -50,4 +63,4 @@ spec:
         {{- toYaml . | nindent 8 }}
       {{- end }}
       volumes:
-        {{- toYaml .Values.textfileVolumes | nindent 8 }}
+        {{- toYaml .Values.additionalVolumes | nindent 8 }}

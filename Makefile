@@ -18,20 +18,20 @@ container-build:
 	docker build \
 		--build-arg BUILD_DATE="$(shell date -u +'%Y-%m-%dT%H:%M:%SZ')" \
 		--build-arg VCS_REF="$(shell git rev-parse HEAD)" \
-		-t ghcr.io/galexrt/node-exporter-smartmon:$(VERSION) \
+		-t ghcr.io/galexrt/node-exporter-textfiles:$(VERSION) \
 		.
-	docker tag ghcr.io/galexrt/node-exporter-smartmon:$(VERSION) quay.io/galexrt/node-exporter-smartmon:$(VERSION)
+	docker tag ghcr.io/galexrt/node-exporter-textfiles:$(VERSION) quay.io/galexrt/node-exporter-textfiles:$(VERSION)
 
 	if [ "$(VERSION)" != "$(VERSION_SHORT)" ]; then \
-		docker tag ghcr.io/galexrt/node-exporter-smartmon:$(VERSION) ghcr.io/galexrt/node-exporter-smartmon:$(VERSION_SHORT); \
-		docker tag ghcr.io/galexrt/node-exporter-smartmon:$(VERSION) quay.io/galexrt/node-exporter-smartmon:$(VERSION_SHORT); \
+		docker tag ghcr.io/galexrt/node-exporter-textfiles:$(VERSION) ghcr.io/galexrt/node-exporter-textfiles:$(VERSION_SHORT); \
+		docker tag ghcr.io/galexrt/node-exporter-textfiles:$(VERSION) quay.io/galexrt/node-exporter-textfiles:$(VERSION_SHORT); \
 	fi
 
 container-push:
-	docker push ghcr.io/galexrt/node-exporter-smartmon:$(VERSION)
-	docker push quay.io/galexrt/node-exporter-smartmon:$(VERSION)
+	docker push ghcr.io/galexrt/node-exporter-textfiles:$(VERSION)
+	docker push quay.io/galexrt/node-exporter-textfiles:$(VERSION)
 
 	if [ "$(VERSION)" != "$(VERSION_SHORT)" ]; then \
-		docker push ghcr.io/galexrt/node-exporter-smartmon:$(VERSION_SHORT); \
-		docker push quay.io/galexrt/node-exporter-smartmon:$(VERSION_SHORT); \
+		docker push ghcr.io/galexrt/node-exporter-textfiles:$(VERSION_SHORT); \
+		docker push quay.io/galexrt/node-exporter-textfiles:$(VERSION_SHORT); \
 	fi
