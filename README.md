@@ -34,8 +34,14 @@ Any flags / args given to the container are passed to the `SCRIPT` that will be 
 
 ## Grafana Dashboard
 
-A Grafana dashboard for viewing the exported metrics can be found on [Grafana.com - Smartmon Textfile by Galexrt](https://grafana.com/dashboards/3992) and in the [`grafana/`](grafana/) directory.
+A Grafana dashboard for viewing `smartmon` metrics can be found in the [`grafana/`](grafana/) directory and [Grafana.com - Smartmon Textfile Dashboard by Galexrt](https://grafana.com/dashboards/3992).
+
+## Required node_exporter Configuration
+
+See [node_exporter Configuration Prerequisites](docs/../node_exporter.md).
 
 ## Kubernetes
+Following deployments / installation methods are available:
 
-The [`kubernetes/`](kubernetes/) directory contains an example DaemonSet for your Kubernetes cluster.
+* [`node-exporter-textfiles` Helm Chart](charts/node-exporter-textfiles) (Recommended)
+* [`kubernetes/`](kubernetes/) directory contains an example DaemonSet running the `smartmon.sh` and `nvme_metrics.sh` textfile scripts.
