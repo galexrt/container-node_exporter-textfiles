@@ -51,7 +51,7 @@ A Grafana dashboard for viewing `smartmon` metrics can be found in the [`grafana
 
 ## Required node_exporter Configuration
 
-See [node_exporter Configuration Prerequisites](docs/../node_exporter.md).
+See [node_exporter Configuration Prerequisites](docs/node_exporter.md).
 
 ## Kubernetes
 Following deployments / installation methods are available:
