@@ -1,4 +1,4 @@
-FROM debian:bullseye-slim
+FROM debian:bookworm-slim
 
 ARG BUILD_DATE="N/A"
 ARG REVISION="N/A"
@@ -15,6 +15,7 @@ LABEL org.opencontainers.image.authors="Alexander Trost <galexrt@googlemail.com>
     org.opencontainers.image.version="N/A"
 
 RUN apt-get -q update && \
+    apt-get -q upgrade -y && \
     apt-get install -y --no-install-recommends \
         ca-certificates \
         git \

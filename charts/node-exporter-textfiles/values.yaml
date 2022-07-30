@@ -7,8 +7,10 @@ replicaCount: 1
 image:
   repository: quay.io/galexrt/node-exporter-textfiles
   pullPolicy: IfNotPresent
-  # Overrides the image tag whose default is the chart appVersion.
-  tag: ""
+  # By default `main` is a moving image tag, I would recommend to use a
+  # specific tag from here:
+  # https://quay.io/repository/galexrt/node-exporter-textfiles?tab=tags
+  tag: "main"
 
 imagePullSecrets: []
 nameOverride: ""
