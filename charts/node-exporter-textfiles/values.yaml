@@ -82,7 +82,8 @@ textfiles:
       #   memory: 128Mi
 
 podSecurityPolicy:
-  enabled: true
+  # PodSecurityPolicies are going away in Kubernetes 1.25 and higher
+  enabled: false
   annotations: {}
   spec:
     privileged: true
