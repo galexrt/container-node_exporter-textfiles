@@ -3,6 +3,17 @@ entries:
   node-exporter-textfiles:
   - apiVersion: v2
     appVersion: v20220922-124518-926
+    created: "2022-09-28T16:34:44.34733356Z"
+    description: A Helm chart for running the container-node-exporter-textfiles image
+      easily in Kubernetes as a DaemonSet.
+    digest: f1f9f3065c1803da076e82b81f485bf66457af96564a10760127c4828282fb32
+    name: node-exporter-textfiles
+    type: application
+    urls:
+    - https://github.com/galexrt/container-node_exporter-textfiles/releases/download/node-exporter-textfiles-0.1.2/node-exporter-textfiles-0.1.2.tgz
+    version: 0.1.2
+  - apiVersion: v2
+    appVersion: v20220922-124518-926
     created: "2022-09-28T16:17:58.419444814Z"
     description: A Helm chart for running the container-node-exporter-textfiles image
       easily in Kubernetes as a DaemonSet.
@@ -23,4 +34,4 @@ entries:
     urls:
     - https://github.com/galexrt/container-node_exporter-textfiles/releases/download/node-exporter-textfiles-0.1.0/node-exporter-textfiles-0.1.0.tgz
     version: 0.1.0
-generated: "2022-09-28T16:17:58.419453814Z"
+generated: "2022-09-28T16:34:44.34735386Z"
