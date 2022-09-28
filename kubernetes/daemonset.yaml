@@ -1,3 +1,6 @@
+# It is recommended to use the Helm chart see
+# https://github.com/galexrt/container-node_exporter-textfiles#kubernetes
+#
 apiVersion: apps/v1
 kind: DaemonSet
 metadata:
@@ -26,7 +29,7 @@ spec:
           operator: "Exists"
       terminationGracePeriodSeconds: 5
       containers:
-      - image: quay.io/galexrt/node-exporter-textfiles:v20220203-125335-155
+      - image: quay.io/galexrt/node-exporter-textfiles:v20220922-124518-926
         name: smartmon
         env:
         - name: INTERVAL
@@ -49,7 +52,7 @@ spec:
         - mountPath: /var/lib/node_exporter
           name: host-textfile
           readOnly: false
-      - image: quay.io/galexrt/node-exporter-textfiles:v20220203-125335-155
+      - image: quay.io/galexrt/node-exporter-textfiles:v20220922-124518-926
         name: nvmemetrics
         env:
         - name: INTERVAL
