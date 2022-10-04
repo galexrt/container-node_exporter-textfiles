@@ -35,14 +35,15 @@ spec:
             {{- toYaml .resources | nindent 12 }}
           env:
             - name: SCRIPT
-              value: "{{ .script }}"
+              value: {{ .script | quote }}
             - name: OUTPUT_FILENAME
               value: {{ .outputFilename | quote }}
             - name: INTERVAL
-              value: "{{ .interval }}"
+              value: {{ .interval | quote }}
             {{- with .additionalEnv }}
             {{- toYaml . | nindent 12 }}
             {{- end}}
+          terminationMessagePath: {{ .terminationMessagePath | default $.Values.defaultTerminationMessagePath | quote }}
           volumeMounts:
             - mountPath: /var/lib/node_exporter
               name: textfile

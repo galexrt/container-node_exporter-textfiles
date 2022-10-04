@@ -47,6 +47,8 @@ tolerations: []
 
 affinity: {}
 
+defaultTerminationMessagePath: "/tmp/termination-message"
+
 additionalVolumes:
   - name: textfile
     hostPath:
@@ -65,6 +67,10 @@ textfiles:
     # Defaults to `300`
     interval: 900
     additionalEnv: []
+    # If you want to customize the path, by default the termination message path
+    # is `/tmp/termination-message` to prevent issues with mounting the host's
+    # `/dev` directory
+    #terminationMessagePath: "/tmp/termination-message"
     additionalVolumeMounts:
       - mountPath: /dev
         name: host-dev
