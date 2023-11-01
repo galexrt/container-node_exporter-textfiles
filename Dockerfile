@@ -36,7 +36,7 @@ RUN apt-get -q update && \
         /scripts && \
     chmod 755 /scripts/* && \
     /usr/sbin/update-smart-drivedb && \
-    apt-get remove -y gpg git && \
+    apt-get remove -y gpg git gpg-agent && \
     apt-get autoremove -y && \
     apt-get clean && \
     rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/* && \
