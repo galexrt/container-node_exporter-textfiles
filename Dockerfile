@@ -28,7 +28,8 @@ RUN apt-get -q update && \
         wget \
         python3 \
         python3-prometheus-client \
-        gpg && \
+        gpg \
+        gpg-agent && \
     mkdir -p /scripts && \
     git clone --depth 1 --branch master --single-branch \
         https://github.com/prometheus-community/node-exporter-textfile-collector-scripts.git \
