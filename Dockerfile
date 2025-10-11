@@ -1,4 +1,4 @@
-FROM docker.io/library/ubuntu:plucky-20250925.1
+FROM docker.io/library/ubuntu:plucky-20251001
 
 ARG BUILD_DATE="N/A"
 ARG REVISION="N/A"
