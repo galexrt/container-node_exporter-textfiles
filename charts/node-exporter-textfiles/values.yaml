@@ -2,8 +2,6 @@
 # This is a YAML-formatted file.
 # Declare variables to be passed into your templates.
 
-replicaCount: 1
-
 image:
   repository: quay.io/galexrt/node-exporter-textfiles
   pullPolicy: IfNotPresent
@@ -18,7 +16,6 @@ fullnameOverride: ""
 
 serviceAccount:
   # Specifies whether a service account should be created
-  # Must be true if `podSecurityPolicy.enabled` is `true` (default)
   create: true
   # Annotations to add to the service account
   annotations: {}
@@ -86,37 +83,3 @@ textfiles:
       # requests:
       #   cpu: 100m
       #   memory: 128Mi
-
-podSecurityPolicy:
-  # PodSecurityPolicies are going away in Kubernetes 1.25 and higher
-  enabled: false
-  annotations: {}
-  spec:
-    privileged: true
-    allowPrivilegeEscalation: true
-    volumes:
-      - 'configMap'
-      - 'emptyDir'
-      - 'hostPath'
-      - 'secret'
-    allowedHostPaths:
-      # This must be the same as for the `additionalVolumes` hostPath volume paths
-      - pathPrefix: /var/lib/node_exporter
-        readOnly: false
-      - pathPrefix: /dev
-        readOnly: true
-    hostNetwork: false
-    hostPID: false
-    hostIPC: false
-    runAsUser:
-      rule: 'RunAsAny'
-    runAsGroup:
-      rule: 'RunAsAny'
-    seLinux:
-      rule: 'RunAsAny'
-    supplementalGroups:
-      rule: 'RunAsAny'
-    fsGroup:
-      rule: 'RunAsAny'
-    readOnlyRootFilesystem: false
-    hostPorts: []
